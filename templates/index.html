@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<head><title>ITEM LSIT</head></title>
+    <h1>Items</h1>
+    <u1>
+    {% for item in items %}
+    <li>{{ item.name }}
+    <a href="{{ url_for('update', idNum=item.idNum) }}">edit</a>
+    <form action="{{ url_for('delete', idNum=item.idNum) }}" method="POST" style="display:inline;">
+    <button type="submit">Delete</button>
+    </form>
+    </li>
+    {% endfor %}
+    </u1>
+    <a href="{{ url_for('create') }}">Add new item</a>
+{% endblock %}
